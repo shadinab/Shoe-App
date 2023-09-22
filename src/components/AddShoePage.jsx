@@ -18,7 +18,7 @@ const AddShoePage = () => {
     setShoeData({ ...shoeData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (isSubmitting) {
@@ -55,10 +55,32 @@ const AddShoePage = () => {
     setIsSubmitting(true);
 
     // Simulate a request (you would replace this with your actual API call)
-    setTimeout(() => {
-      console.log("Simulated API request:", shoeData);
+    try {
+      // Send a POST request to your API endpoint
+      const response = await fetch(
+        "https://6508aeaf56db83a34d9ca202.mockapi.io/shoeList",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(shoeData),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to add shoe. Please try again.");
+      }
+
+      // Clear the form after successful submission
       setIsSubmitting(false);
-    }, 2000); // Simulate a 2-second delay for the request
+      console.log("Shoe added successfully!");
+    } catch (error) {
+      setError(error.message || "An error occurred. Please try again later.");
+      setIsSubmitting(false);
+    }
+
+    // Simulate a 2-second delay for the request
 
     // Clear the form after submission
     setShoeData({ name: "", price: "", link: "", description: "" });
@@ -72,7 +94,7 @@ const AddShoePage = () => {
     <div className="centerShoeAdd">
       <h1>Shoe app</h1>
       <h2>Add a New Shoe</h2>
-      <button className="hide-add-shoe" onClick={toggleForm}>
+      <button className="hide-add-shoe" onClick={(toggleForm)}>
         {showForm ? "Hide Form" : "Add Shoe"}
       </button>
       {showForm && (
