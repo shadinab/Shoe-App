@@ -1,0 +1,84 @@
+.signIn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  height: 100vh;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+/* image insdise the shoes page */
+.cat-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 100vh;
+  gap: 5%;
+}
+
+.cat-item {
+  width: calc(
+    25% - 10px
+  ); /* 33.33% width for each column with a little spacing */
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.cat-item img {
+  max-width: 100%;
+  border-radius: 10px; /* Add rounded corners to the images */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  transition: transform 0.2s; /* Add a smooth transition on hover */
+}
+
+.cat-item img:hover {
+  transform: scale(1.05); /* Enlarge the image on hover */
+}
+
+/* add shoe  */
+
+.centerShoeAdd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  margin-bottom: 5%;
+  font-size: 1.5rem;
+}
+
+.hide-add-shoe {
+  margin-bottom: 1.5%;
+  width: 8vw;
+  height: 4vh;
+  border: none;
+  background-color: rgb(180, 251, 251);
+}
+
+.button-add-shoe {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
