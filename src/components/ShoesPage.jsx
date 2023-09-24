@@ -4,6 +4,7 @@ import "./index.css";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Spinner from "./Spinner";
 import ShoePage from "./ShoePage";
+import EmailData from "./EmailData";
 
 function MyComponent() {
   const [data, setData] = useState([]);
@@ -37,17 +38,27 @@ function MyComponent() {
     // When an image is clicked, set the selected shoe and navigate to the edit page
     setSelectedShoe(shoe);
     // fetchDataToOtherCompent(shoe);
-    console.log("shoe", shoe);
+    // console.log("shoe", shoe);
     localStorage.setItem("shoe", JSON.stringify(shoe));
 
     // let saveShoeOnLocalStorge = JSON.stringify(localStorage.setItem("shoe",shoe))
     navigate(`/shoes/${shoe.id}`);
   };
 
+  const logout = () => {
+    navigate("/"); // Redirect to the /shoes route on successful registration
+  };
+
   return (
     <div>
-      <button className="hide-add-shoe center1" onClick={addshoe}>
+      <button className="button center1" onClick={addshoe}>
         Add Shoes
+      </button>
+      <div className="center1">
+        <EmailData />
+      </div>
+      <button className="logout-button" onClick={logout}>
+        log out
       </button>
       <Spinner loading={loading} />
       <div className="cat-list">
@@ -56,7 +67,7 @@ function MyComponent() {
             {showImages && (
               // Conditionally render the image after a delay
               <img
-                src={dat.image}
+                src={dat.link}
                 alt={dat.name}
                 style={{
                   display: "block",
@@ -75,7 +86,7 @@ function MyComponent() {
           shoe={{
             id: selectedShoe.id,
             name: selectedShoe.name,
-            image: selectedShoe.image,
+            link: selectedShoe.link,
             price: selectedShoe.price,
           }}
         />

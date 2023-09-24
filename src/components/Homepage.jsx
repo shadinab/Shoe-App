@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 import "./index.css";
 
-
 const RegistrationForm = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -42,7 +41,38 @@ const RegistrationForm = () => {
     const formIsValid = usernameIsValid && passwordIsValid;
 
     if (formIsValid) {
-      setValidated(true); // Set the validation status to true
+      setValidated(true);
+      // Define the API endpoint URL (replace with your actual URL)
+      const apiUrl = "https://6508aeaf56db83a34d9ca202.mockapi.io/emaildata";
+
+      // Create an object with email and password data
+      const userData = {
+        formData,
+      };
+
+      // Make a POST request to save the data
+      fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to save data to the API");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log("Data saved successfully:", data);
+          // Handle success, e.g., display a success message or perform other actions
+        })
+        .catch((error) => {
+          console.error("Error saving data:", error);
+          // Handle errors, e.g., display an error message or perform other error-handling actions
+        });
+      // Set the validation status to true
       navigate("/shoes"); // Redirect to the /shoes route on successful registration
     }
 
@@ -54,13 +84,18 @@ const RegistrationForm = () => {
     validateForm();
   };
 
+  const handleClear = () => {
+    setFormData({ username: "", password: "" });
+    setValidated(false);
+  };
+
   return (
     <div className="signIn">
       <h2>Registration Form</h2>
       {!validated ? ( // Conditional rendering based on validation status
         <form onSubmit={handleSubmit}>
           <div className="input">
-            <label htmlFor="username">Username:</label>
+            <label htmlFor="username">Email:</label>
             <input
               type="text"
               id="username"
@@ -83,9 +118,13 @@ const RegistrationForm = () => {
           </div>
           <div className="button">
             <button type="submit">Register</button>
+            <button className="clear-button" onClick={handleClear}>
+              Clear
+            </button>
           </div>
         </form>
-      ) : null}
+      ) : null 
+      }
     </div>
   );
 };

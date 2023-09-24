@@ -41,7 +41,7 @@
     25% - 10px
   ); /* 33.33% width for each column with a little spacing */
   padding: 10px;
-  border: 1px solid #ccc;
+  border: none;
   text-align: center;
 }
 
@@ -76,6 +76,15 @@
   border: none;
   background-color: rgb(180, 251, 251);
 }
+.return {
+  margin-bottom: 1.5%;
+  width: 8vw;
+  height: 4vh;
+  border: none;
+  background-color: rgba(64, 240, 173, 0.744);
+  color: white;
+  border-radius: 50%;
+}
 
 .button-add-shoe {
   display: flex;
@@ -93,6 +102,22 @@
   margin: 3rem auto;
 }
 
+.logout-button {
+  background-color: #dc3545; /* Red color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+}
+
+.logout-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
 /* loading-spinner */
 /* Spinner.css */
 .spinner-container {
@@ -111,7 +136,6 @@
   animation: spin 1s linear infinite;
 }
 
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -120,3 +144,82 @@
     transform: rotate(360deg);
   }
 }
+
+/* shoe page */
+/* Style for ShoePage */
+.centerShoeAdd2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+h2,
+p {
+  margin-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 25px 30px;
+  margin: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+/* Error message */
+.error {
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+}
+
+/* background */
+body {
+  background: linear-gradient(45deg, #3498db, #9b59b6);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+

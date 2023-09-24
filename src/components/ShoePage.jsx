@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import "./index.css";
 
 const ShoePage = () => {
+  const navigate = useNavigate();
   const [shoe, setShoe] = useState(JSON.parse(localStorage.getItem("shoe")));
   const [isEditing, setIsEditing] = useState(false);
 
@@ -25,7 +28,7 @@ const ShoePage = () => {
       name: shoe.name,
       description: shoe.description,
       price: shoe.price,
-      image: shoe.image,
+      link: shoe.link,
     };
 
     // Make a PUT request to update the shoe data
@@ -51,7 +54,7 @@ const ShoePage = () => {
 
   const handleDelete = () => {
     // Assuming you have an API endpoint like '/api/shoes/:id' where :id is the shoe's ID
-    const apiUrl = `/api/shoes/${shoe.id}`;
+    const apiUrl = `https://6508aeaf56db83a34d9ca202.mockapi.io/shoeList/${shoe.id}`;
 
     // Make a DELETE request to remove the shoe data
     fetch(apiUrl, {
@@ -67,13 +70,18 @@ const ShoePage = () => {
         console.error("Error deleting the shoe:", error);
         // Handle errors here, e.g., show an error message to the user
       });
+    navigate("/shoes");
+  };
+
+  const handleReturn = () => {
+    navigate("/shoes");
   };
 
   return (
-    <div>
+    <div className="centerShoeAdd2 ">
       <div>
         {isEditing ? (
-          <div>
+          <div className="centerShoeAdd center1">
             <label>Name:</label>
             <input
               type="text"
@@ -100,8 +108,8 @@ const ShoePage = () => {
             <label>Image URL:</label>
             <input
               type="text"
-              value={shoe.image}
-              onChange={(e) => setShoe({ ...shoe, image: e.target.value })}
+              value={shoe.link}
+              onChange={(e) => setShoe({ ...shoe, link: e.target.value })}
             />
             <br />
             <button onClick={handleSave}>Save</button>
@@ -111,10 +119,11 @@ const ShoePage = () => {
           <div>
             <h2>{shoe.name}</h2>
             <p>{shoe.description}</p>
-            <img src={shoe.image} alt="Shoe" />
+            <img src={shoe.link} alt="Shoe" />
             <p>{shoe.price}</p>
             <button onClick={handleEdit}>Edit</button>
             <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleReturn}>Return</button>
           </div>
         )}
       </div>

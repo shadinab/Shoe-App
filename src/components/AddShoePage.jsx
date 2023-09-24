@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./index.css";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const AddShoePage = () => {
+  const navigate = useNavigate();
   const [shoeData, setShoeData] = useState({
     name: "",
     price: "",
@@ -84,17 +86,25 @@ const AddShoePage = () => {
 
     // Clear the form after submission
     setShoeData({ name: "", price: "", link: "", description: "" });
+    navigate("/shoes");
   };
 
   const toggleForm = () => {
     setShowForm(!showForm); // Toggle the form's visibility
   };
 
+  const handleReturn = () => {
+    navigate("/shoes");
+  };
+
   return (
     <div className="centerShoeAdd">
+      <button className="button1" onClick={handleReturn}>
+        Return to the list
+      </button>
       <h1>Shoe app</h1>
       <h2>Add a New Shoe</h2>
-      <button className="hide-add-shoe" onClick={(toggleForm)}>
+      <button className="button" onClick={toggleForm}>
         {showForm ? "Hide Form" : "Add Shoe"}
       </button>
       {showForm && (
