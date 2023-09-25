@@ -42,7 +42,7 @@ To get started with the Shoe App, follow these instructions:
    npm start
    ```
 
-5. Access the Shoe App in your web browser at [http://localhost:3000](http://localhost:3000).
+5. Access the Shoe App in your web browser at https://mellow-tiramisu-4cd53f.netlify.app/
 
 ## Features
 
@@ -83,8 +83,6 @@ The Shoe App uses a mock API for data storage. The API endpoints and data struct
 Contributions to the Shoe App are welcome! If you find a bug, have a feature request, or want to contribute code, please follow the [contribution guidelines](CONTRIBUTING.md).
 
 ## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 Thank you for using the Shoe App! If you have any questions or need assistance, please don't hesitate to contact us.
 
