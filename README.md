@@ -80,7 +80,7 @@ The Shoe App uses a mock API for data storage. The API endpoints and data struct
 
 ## Contributing
 
-Contributions to the Shoe App are welcome! If you find a bug, have a feature request, or want to contribute code, please follow the [contribution guidelines](CONTRIBUTING.md).
+Contributions to the Shoe App are welcome! If you find a bug, have a feature request, or want to contribute code.
 
 ## License
 
