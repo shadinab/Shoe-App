@@ -4,9 +4,9 @@
 
 Welcome to the Shoe App, a simple web application that allows you to manage a collection of shoes. With this app, you can easily add, remove, and edit shoe information, including the shoe name, price, and description. All data is stored in a mock API, making it easy to manage your shoe collection.
 
-![Shoe App 1](./src/assets/01)
-![Shoe App 2](./src/assets/02)
-![Shoe App 3](./src/assets/03)
+![Shoe App 1](./src/assets/01.PNG)
+![Shoe App 3](./src/assets/04.PNG)
+![Shoe App 2](./src/assets/02.PNG)
 
 ## Table of Contents
 
