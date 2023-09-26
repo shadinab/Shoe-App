@@ -25,7 +25,7 @@ To get started with the Shoe App, follow these instructions:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/shoe-app.git
+   git clone https://github.com/shadinab/shoe-app.git
    ```
 
 2. Navigate to the project directory:
